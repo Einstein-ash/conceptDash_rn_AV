@@ -1,12 +1,13 @@
 // src/screens/Stories/StoriesScreen.tsx
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { allStories, Story } from '../../data/stories';
 import FilterMenu from './components/FilterMenu';
 import StoryCarousel from './components/StoryCarousel';
 
 const categories = ['All', 'Articles', 'Insights', 'Mentions'];
+const { width: screenWidth } = Dimensions.get('window');
 
 const StoriesScreen: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -36,7 +37,7 @@ const StoriesScreen: React.FC = () => {
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
-        <StoryCarousel stories={filteredStories} />
+        <StoryCarousel stories={filteredStories} containerWidth={screenWidth - 120} />
       </View>
     </View>
   );
@@ -46,7 +47,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F7',
-    paddingTop: 40,
+    // paddingTop: 40,
+    paddingHorizontal: 25,
   },
   breadcrumbContainer: {
     flexDirection: 'row',

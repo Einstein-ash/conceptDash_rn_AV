@@ -1,12 +1,33 @@
-// src/screens/About/AboutScreen.jsx
+// src/screens/Contact/ContactScreen.tsx
 
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import ContactHeader from './components/ContactHeader';
+import ProposalCarousel from './components/ProposalCarousel';
+import ServiceSelector from './components/ServicesSelector';
+import ContactForm from './components/ContactForm';
+import Footer from '../../components/Footer';
 
-const ContactScreen = () => {
+const ContactScreen: React.FC = () => {
+  const [selectedService, setSelectedService] = useState('General');
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Contact Screen</Text>
+      <ContactHeader />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <ProposalCarousel />
+        <View style={styles.formSection}>
+          <ServiceSelector
+            selectedService={selectedService}
+            onSelect={setSelectedService}
+          />
+          <ContactForm formType={selectedService} />
+        </View>
+        <Footer />
+      </ScrollView>
     </View>
   );
 };
@@ -14,13 +35,14 @@ const ContactScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: '#F5F5F7',
   },
-  text: {
-    color: '#FFF',
-    fontSize: 24,
+  scrollContent: {
+    paddingBottom: 20,
+  },
+  formSection: {
+    paddingHorizontal: 25,
+    paddingBottom: 40,
   },
 });
 

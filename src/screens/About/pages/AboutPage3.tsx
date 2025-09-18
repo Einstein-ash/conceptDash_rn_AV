@@ -40,7 +40,7 @@ const AboutPage3: React.FC = () => {
         <Text style={styles.buttonText}>JOIN OUR TEAM</Text>
       </TouchableOpacity>
           </View>
-          {/* <Footer /> */}
+          <Footer />
     </View>
   );
 };
