@@ -6,11 +6,12 @@ import {
   FlatList,
   Image,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
-// highlight-next-line
-import Icon from 'react-native-vector-icons/Feather'; // <-- 1. Import the icon library
 
-// Import your images (no change here)
+import Icon from 'react-native-vector-icons/Feather';
+import { navigate } from '../../navigators/navigationUtils';
+
 import dept_2 from '../../assets/images/page2/dept_2.png';
 import dept_3 from '../../assets/images/page2/dept_3.png';
 import dept_1 from '../../assets/images/page2/dept_1.png';
@@ -19,7 +20,7 @@ import dept_5 from '../../assets/images/page2/dept_5.jpg';
 import dept_6 from '../../assets/images/page2/dept_6.png';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width * 0.75; // Card takes 75% of the screen width
+const CARD_WIDTH = width * 0.75; 
 const SPACING = 15;
 const FULL_CARD_WIDTH = CARD_WIDTH + SPACING;
 
@@ -80,12 +81,16 @@ const Page2 = ({ style }) => {
                   style={styles.cardImage}
                   resizeMode="cover"
                 />
-                <View style={styles.cardTitleStrip}>
+                  <TouchableOpacity
+                style={styles.cardTitleStrip}
+                 onPress={() => navigate('Construction_PM')}
+              > 
                   <Text style={styles.cardTitle}>{item.title}</Text>
                   <View style={styles.iconCircle}>
                     <Icon name="arrow-up-right" size={24} color="#333" />
                   </View>
-                </View>
+      
+                </TouchableOpacity> 
               </View>
               // highlight-end
             )}

@@ -1,7 +1,7 @@
 // src/screens/Projects/ProjectsScreen.tsx
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList , ImageBackground} from 'react-native';
 import { allProjects, Project } from '../../data/projects';
 import FilterMenu from './components/FilterMenu';
 import ProjectCard from './components/ProjectCard';
@@ -24,6 +24,12 @@ const ProjectsScreen: React.FC = () => {
   }, [selectedCategory]);
 
   return (
+         <ImageBackground 
+        source={require('../../assets/images/page4/page4_bg.png')} // <-- PUT YOUR IMAGE PATH HERE
+        style={styles.backgroundImage}
+      >
+
+
   <View style={styles.container}>
  
       ListHeaderComponent={
@@ -37,7 +43,7 @@ const ProjectsScreen: React.FC = () => {
             categories={categories}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
-          />
+            />
         </>
       }
     <FlatList
@@ -45,16 +51,22 @@ const ProjectsScreen: React.FC = () => {
       renderItem={({ item }) => <ProjectCard project={item} />}
       keyExtractor={(item) => item.id.toString()}
       showsVerticalScrollIndicator={false}
-    />
+      />
   </View>
+</ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+      backgroundImage: {
+    flex: 1,
+    backgroundColor:'#fff'
+  },
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F7',
+    backgroundColor: 'transparent',
     paddingHorizontal: 25,
+    paddingTop: 80,
   },
   breadcrumbContainer: {
     flexDirection: 'row',

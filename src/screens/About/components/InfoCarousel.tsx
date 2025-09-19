@@ -50,13 +50,12 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
 <Carousel
   ref={carouselRef}
   loop={false}
-  // --- CHANGE: Adjust width to create the 'peek' effect ---
   width={width * 0.9} 
-  height={width * 1.25} // --- CHANGE: Made the carousel taller ---
+  height={width * 1.1}
   data={CAROUSEL_DATA}
   scrollAnimationDuration={500}
   renderItem={renderItem}
-  // --- NEW: Disable swipe gesture so the page can scroll ---
+
   enabled={false} 
 />
       <TouchableOpacity
@@ -75,89 +74,16 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     // marginTop: 30,
-//     alignItems: 'center',
-//   },
-//  cardContainer: {
-//     width: width * 0.85, // Card is 85% of screen width
-//     height: width * 1.1,  // Card is taller
-//     backgroundColor: '#1E1E22',
-//     borderRadius: 30,
-//     borderWidth: 1,
-//     borderColor: 'rgba(255, 255, 255, 0.1)',
-//     overflow: 'hidden',
-//     alignItems: 'center',
-//     padding: 15,
-//     // iOS Shadow
-//     shadowColor: '#000',
-//     shadowOffset: { width: 0, height: 10 },
-//     shadowOpacity: 0.3,
-//     shadowRadius: 20,
-//     // Android Shadow
-//     elevation: 15,
-//   },
-//     cardHeader: {
-//     width: '100%',
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     alignItems: 'center',
-//     paddingHorizontal: 10,
-//     marginBottom: 10,
-//   },
-//     cardTitle: {
-//     color: '#FFFFFF',
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//   },
-//   cardImage: {
-//     width: '100%',
-//     height: '65%',
-//     borderRadius: 20,
-//     marginBottom: 15,
-//   },
-//   textContainer: {
-//     flex: 1,
-//     padding: 15,
-//     justifyContent: 'center',
-//   },
-//     descriptionContainer: {
-//     flex: 1,
-//     justifyContent: 'center',
-//   },
-//   cardDescription: {
-//     color: '#AEAEB2',
-//     fontSize: 14,
-//     textAlign: 'center',
-//     lineHeight: 20,
-//   },
-//   arrowButton: {
-//     position: 'absolute',
-//     top: '40%',
-//     transform: [{ translateY: -12 }],
-//     backgroundColor: 'rgba(0, 0, 0, 0.4)',
-//     borderRadius: 30,
-//     padding: 8,
-//   },
-//   leftArrow: {
-//     left: 10,
-//   },
-//   rightArrow: {
-//     right: 10,
-//   },
-// });
-
-// src/screens/About/components/InfoCarousel.tsx -> styles
 
 const styles = StyleSheet.create({
   // --- CHANGE: All styles updated for the new design ---
   container: {
-    alignItems: 'flex-start', // Align carousel to the left
+    // alignItems: 'flex-start', // Align carousel to the left
+    paddingLeft:10,
   },
   cardContainer: {
     width: width * 0.8, // Card is 80% of screen width
-    height: '100%',      // Fills the carousel height
+    height: '90%',      // Fills the carousel height
     backgroundColor: '#1E1E22',
     borderRadius: 30,
     overflow: 'hidden',

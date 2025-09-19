@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity ,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+const cdLogo = require('../assets/images/cd_logo.png'); 
+import { navigate } from '../navigators/navigationUtils';
 
 interface HeaderProps {
   onMenuPress: () => void;
@@ -23,7 +25,10 @@ const Header: React.FC<HeaderProps> = ({ onMenuPress }) => {
         }
       ]}
     >
-      <Text style={styles.logo}>CD</Text>
+      {/* <Text style={styles.logo}>CD</Text> */}
+       <TouchableOpacity onPress={() => navigate('Home')}>
+        <Image source={cdLogo} style={{ width: 60, height: 35 ,  resizeMode: 'contain' }} />
+       </TouchableOpacity>
       <TouchableOpacity onPress={onMenuPress} style={styles.menuButton}>
         <Icon name="menu" size={30} color="#FFF" />
       </TouchableOpacity>
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    backgroundColor: 'transparent', 
+    backgroundColor: 'black', 
     zIndex: 10,
   },
   logo: {

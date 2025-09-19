@@ -1,7 +1,7 @@
 // src/screens/Stories/StoriesScreen.tsx
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions ,ImageBackground} from 'react-native';
 import { allStories, Story } from '../../data/stories';
 import FilterMenu from './components/FilterMenu';
 import StoryCarousel from './components/StoryCarousel';
@@ -25,6 +25,11 @@ const StoriesScreen: React.FC = () => {
   }, [selectedCategory]);
 
   return (
+             <ImageBackground 
+            source={require('../../assets/images/page4/page4_bg.png')} // <-- PUT YOUR IMAGE PATH HERE
+            style={styles.backgroundImage}
+          >
+
     <View style={styles.container}>
       <View style={styles.breadcrumbContainer}>
         <Text style={styles.breadcrumbText}>Home </Text>
@@ -36,18 +41,23 @@ const StoriesScreen: React.FC = () => {
           categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
-        />
+          />
         <StoryCarousel stories={filteredStories} containerWidth={screenWidth - 120} />
       </View>
     </View>
+  </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+        backgroundImage: {
+    flex: 1,
+    backgroundColor:'#fff'
+  },
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F7',
-    // paddingTop: 40,
+    backgroundColor: 'transparent',
+    paddingTop: 80,
     paddingHorizontal: 25,
   },
   breadcrumbContainer: {

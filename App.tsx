@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, {useState , useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -7,28 +7,27 @@ import {
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import { navigationRef } from './src/navigators/navigationUtils.js';
+import { navigationRef } from './src/navigators/navigationUtils';
 
 import SideNavBar from './src/components/SideNavBar';
 import Header, { HEADER_HEIGHT } from './src/components/Header';
 import RootNavigator from './src/navigators/RootNavigator';
+import SplashScreen from './src/components/SplashScreen'; 
 
 function App() {
-
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isAppReady, setIsAppReady] = useState(false); 
 
   const scrollY = useRef(new Animated.Value(0)).current;
 
-
   const clampedScrollY = Animated.diffClamp(scrollY, 0, HEADER_HEIGHT);
-
   const headerTranslateY = clampedScrollY.interpolate({
     inputRange: [0, HEADER_HEIGHT],
-    outputRange: [0, -HEADER_HEIGHT], 
+    outputRange: [0, -HEADER_HEIGHT],
     extrapolate: 'clamp',
   });
-
-    const onScrollHandler = Animated.event(
+  
+  const onScrollHandler = Animated.event(
     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
     { useNativeDriver: false }
   );
@@ -37,13 +36,12 @@ function App() {
     <SafeAreaProvider>
       <StatusBar barStyle="light-content" backgroundColor="#111" />
 
-      <View style={styles.container}>
-        <NavigationContainer ref={navigationRef}>
-          {/* We pass the onScroll handler into the navigator using screenProps */}
-          {/* This is a temporary way to keep the animation working */}
-           <RootNavigator onScroll={onScrollHandler} />
-        </NavigationContainer>
-        
+    <View style={styles.container}>
+      <NavigationContainer ref={navigationRef}>
+        <RootNavigator onScroll={onScrollHandler} />
+      </NavigationContainer>
+
+      <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
         <Animated.View
           style={[
             styles.headerContainer,
@@ -58,6 +56,11 @@ function App() {
           onClose={() => setIsSidebarVisible(false)}
         />
       </View>
+    </View>
+
+    {!isAppReady && (
+      <SplashScreen onAnimationFinish={() => setIsAppReady(true)} />
+    )}
     </SafeAreaProvider>
   );
 }

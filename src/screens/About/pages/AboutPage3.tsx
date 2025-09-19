@@ -48,7 +48,7 @@ const AboutPage3: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     height: screenHeight,
-    backgroundColor: '#F5F5F7', // The light background color
+        backgroundColor: 'transparent', // The light background color
     // justifyContent: 'center',
     // alignItems: 'center',
     // paddingHorizontal: 20,

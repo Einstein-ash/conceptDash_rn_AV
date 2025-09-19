@@ -1,45 +1,42 @@
-// src/components/Footer.tsx
-
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { navigate } from '../navigators/navigationUtils';
 
-// NOTE: You will need to import your logo and flag SVGs here,
-// just like you did for the team members. I am using placeholders.
-// import Logo from '../assets/images/logo.svg';
-// import CanadaFlag from '../assets/images/flags/canada.svg';
+const cdLogo = require('../assets/images/cd_logo.png'); 
 
 const Footer: React.FC = () => {
-  // A helper component for the links to avoid repeating styles
-  const Link = ({ children }: { children: React.ReactNode }) => (
-    <TouchableOpacity>
-      <Text style={styles.linkText}>{children}</Text>
-    </TouchableOpacity>
+ 
+ const Link = ({ screen, children }: { screen?: string; children: React.ReactNode }) => (
+   <TouchableOpacity onPress={() => screen && navigate(screen)} disabled={!screen}>
+     <Text style={styles.linkText}>{children}</Text>
+   </TouchableOpacity>
   );
 
   return (
     <View style={styles.footerContainer}>
       <View style={styles.footerContent}>
-        {/* Column 1: Logo */}
-        <View style={styles.logoContainer}>
-           {/* <Logo width={40} height={40} />  Replace with your actual logo SVG */}
-           <Icon name="codesandbox" size={40} color="#FFF" />
-        </View>
+       
+        <TouchableOpacity 
+        style = {styles.logoContainer}
+         onPress={() => navigate('Home')}>
+        <Image source={cdLogo} style={{ width: 60, height: 35 ,  resizeMode: 'contain' }} />
+       </TouchableOpacity>
 
-        {/* Columns 2 & 3: Links */}
+
       <View style={styles.linksContainer}>
-        {/* First column of main links */}
+
         <View style={styles.linkColumn}>
-          <Link>About</Link>
-          <Link>Services</Link>
-          <Link>Careers</Link>
+          <Link  screen="About" >About</Link>
+          <Link screen="Construction_PM">Services</Link>
+          <Link screen="Careers">Careers</Link>
         </View>
-        {/* Second column of main links */}
+   
         <View style={styles.linkColumn}>
-          <Link>Projects</Link>
-          <Link>Blogs</Link>
+          <Link screen="Projects" >Projects</Link>
+          <Link screen="Stories" >Blogs</Link>
         </View>
-        {/* Column for legal links */}
+      
         <View style={styles.linkColumn}>
           <Text style={styles.linkText}>© Concept Dash 2025</Text>
           <Link>Terms & Conditions</Link>
@@ -57,68 +54,10 @@ const Footer: React.FC = () => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   footerContainer: {
-//     backgroundColor: '#000000',
-//     paddingHorizontal: 20,
-//     paddingVertical: 30,
-//   },
-//   footerContent: {
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     alignItems: 'flex-start',
-//   },
-//   logoContainer: {
-//     marginRight: 20,
-//   },
-//   linksContainer: {
-//     flex: 1,
-//     flexDirection: 'row',
-//   },
-//   linkColumn: {
-//     marginRight: 25,
-//   },
-//   linkText: {
-//     color: '#FFFFFF',
-//     fontSize: 14,
-//     marginBottom: 12,
-//   },
-//   presenceContainer: {
-//     alignItems: 'flex-start',
-//     marginRight: 20,
-//   },
-//   presenceTitle: {
-//     color: '#FFFFFF',
-//     fontSize: 14,
-//     fontWeight: 'bold',
-//     marginBottom: 12,
-//   },
-//   flagsContainer: {
-//     flexDirection: 'row',
-//     flexWrap: 'wrap',
-//     width: 100, // 4 flags per row
-//   },
-//   flag: {
-//     marginRight: 5,
-//     marginBottom: 5,
-//   },
-//   scrollTopButton: {
-//     borderWidth: 1,
-//     borderColor: '#FFF',
-//     borderRadius: 20,
-//     width: 40,
-//     height: 40,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-// });
-
-
 
 const styles = StyleSheet.create({
   footerContainer: {
     backgroundColor: '#000000',
-    // paddingHorizontal: 15,
     paddingVertical: 5,
   },
   footerContent: {

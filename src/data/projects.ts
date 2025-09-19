@@ -13,22 +13,6 @@ export interface Project {
 export const allProjects: Project[] = [
   {
     id: 1,
-    title: '515 Park Avenue',
-    category: 'Architecture',
-    location: 'East, Chatham Kent',
-    year: 2026,
-    image: require('../assets/images/projects/project1.png'),
-  },
-  {
-    id: 2,
-    title: 'Metrolinx Go Line Expansion',
-    category: 'Railways',
-    location: 'Oshawa to Bowmanville',
-    year: 2024,
-    image: require('../assets/images/projects/project1.png'),
-  },
-  {
-    id: 3,
     title: 'Conservation Halton - Kelso',
     category: 'Construction',
     location: 'Milton',
@@ -36,12 +20,20 @@ export const allProjects: Project[] = [
     image: require('../assets/images/projects/project1.png'),
   },
   {
+    id: 3,
+    title: '515 Park Avenue',
+    category: 'Architecture',
+    location: 'East, Chatham Kent',
+    year: 2026,
+    image: require('../assets/images/projects/dept_1.png'),
+  },
+  {
     id: 4,
     title: 'TRCA Lower Don Trail Access',
     category: 'Engineering',
     location: 'Toronto',
     year: 2025,
-    image: require('../assets/images/projects/project1.png'),
+    image: require('../assets/images/projects/engg_project1.png'),
   },
   {
     id: 5,
@@ -50,6 +42,30 @@ export const allProjects: Project[] = [
     location: 'Lindsay, Ontario',
     year: 2027,
     image: require('../assets/images/projects/project1.png'),
+  },
+    {
+    id: 6,
+    title: 'CN & Go Train Sightline and Braking Distance Analysis Georgetown Go',
+    category: 'Railways',
+    location: 'Oshawa to Bowmanville',
+    year: 2024,
+    image: require('../assets/images/projects/railway_project1.png'),
+  },
+    {
+    id: 7,
+    title: 'CN & Go Train Sightline and Braking Distance Analysis Georgetown Go',
+    category: 'Railways',
+    location: 'Oshawa to Bowmanville',
+    year: 2024,
+    image: require('../assets/images/projects/railway_project2.png'),
+  },
+    {
+    id: 8,
+    title: 'TRCA Lower Don Trail Access',
+    category: 'Engineering',
+    location: 'Toronto',
+    year: 2025,
+    image: require('../assets/images/projects/engg_project2.jpg'),
   },
   // ... Add all your other projects here
 ];

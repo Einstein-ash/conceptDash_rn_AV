@@ -85,8 +85,8 @@ const AboutPage2: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     height: screenHeight,
-    backgroundColor: '#F5F5F7',
-    paddingTop: 40,
+    backgroundColor: 'transparent',
+    paddingTop: 75,
   },
   textSection: {
     paddingHorizontal: 25,

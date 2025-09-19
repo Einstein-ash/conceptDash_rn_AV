@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   // --- CHANGE: Switched to a light background ---
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F7', // Light grey background
+    backgroundColor: 'transparent', // Light grey background
     height: screenHeight,
   },
   contentContainer: {

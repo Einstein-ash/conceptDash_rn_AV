@@ -1,34 +1,55 @@
-// src/screens/Contact/ContactScreen.tsx
-
 import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import ContactHeader from './components/ContactHeader';
+import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 import ProposalCarousel from './components/ProposalCarousel';
 import ServiceSelector from './components/ServicesSelector';
 import ContactForm from './components/ContactForm';
 import Footer from '../../components/Footer';
 
+const { width } = Dimensions.get('window');
+
 const ContactScreen: React.FC = () => {
   const [selectedService, setSelectedService] = useState('General');
 
   return (
-    <View style={styles.container}>
-      <ContactHeader />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-      >
-        <ProposalCarousel />
-        <View style={styles.formSection}>
-          <ServiceSelector
-            selectedService={selectedService}
-            onSelect={setSelectedService}
-          />
-          <ContactForm formType={selectedService} />
+    <ScrollView
+      style={styles.container}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.scrollContent}
+    >
+      {/* --- ▼ NEW: Header content is now inside the ScrollView ▼ --- */}
+      <View style={styles.headerContainer}>
+        <View style={styles.breadcrumbContainer}>
+          <Text style={styles.breadcrumbText}>Home </Text>
+          <Text style={styles.breadcrumbText}>&gt; </Text>
+          <Text style={[styles.breadcrumbText, styles.breadcrumbActive]}>Contact Us</Text>
         </View>
-        <Footer />
-      </ScrollView>
-    </View>
+        <View style={styles.contactDetailsContainer}>
+          <View style={styles.contactItem}>
+            <Icon name="mail" size={20} color="#6A1B9A" />
+            <Text style={styles.contactText}>info@conceptdash.ca</Text>
+          </View>
+          <View style={styles.separator} />
+          <View style={styles.contactItem}>
+            <Icon name="phone" size={20} color="#6A1B9A" />
+            <Text style={styles.contactText}>+1 (855) 997-3274 (DASH)</Text>
+          </View>
+        </View>
+      </View>
+      {/* --- ▲ HEADER CONTENT ENDS HERE ▲ --- */}
+      
+      <ProposalCarousel />
+      
+      <View style={styles.formSection}>
+        <ServiceSelector
+          selectedService={selectedService}
+          onSelect={setSelectedService}
+        />
+        <ContactForm formType={selectedService} />
+      </View>
+      
+      <Footer />
+    </ScrollView>
   );
 };
 
@@ -36,13 +57,54 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F7',
+    marginTop: 100,
   },
   scrollContent: {
-    paddingBottom: 20,
+    // paddingBottom: 20,
   },
+  // --- ▼ NEW STYLES FOR THE INTEGRATED HEADER ▼ ---
+  headerContainer: {
+    paddingTop: 40,
+    paddingHorizontal: 25,
+    marginBottom: 20,
+  },
+  breadcrumbContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 25,
+  },
+  breadcrumbText: {
+    color: '#8E8E93',
+    fontSize: 16,
+  },
+  breadcrumbActive: {
+    color: '#1C1C1E',
+    fontWeight: '600',
+  },
+  contactDetailsContainer: {
+    flexDirection: 'row',
+    paddingVertical : 40,
+  },
+  contactItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  contactText: {
+    color: '#333',
+    fontSize: 12,
+    marginHorizontal: 5,
+  },
+  separator: {
+    height: '100%',
+    width: 1,
+    backgroundColor: '#D1D1D1',
+    marginHorizontal: 15,
+  },
+  // --- ▲ END OF NEW HEADER STYLES ▲ ---
   formSection: {
     paddingHorizontal: 25,
-    paddingBottom: 40,
+    marginBottom: 60,
+
   },
 });
 

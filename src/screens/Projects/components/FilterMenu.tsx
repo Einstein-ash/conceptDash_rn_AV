@@ -18,7 +18,6 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ categories, selectedCategory, o
       return (
         <TouchableOpacity key={category} onPress={() => onSelectCategory(category)}>
           <View style={styles.categoryItem}>
-            {/* --- CHANGE: Conditionally render arrow as text --- */}
             <Text style={isSelected ? styles.activeText : styles.inactiveText}>
               {isSelected && '→ '}
               {category}
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
   underline: {
     height: 1,
     width: '80%',
-    backgroundColor: '#EAEAEA',
+    backgroundColor: '#242020ff',
   },
 });
 

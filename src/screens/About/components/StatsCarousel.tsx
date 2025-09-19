@@ -58,20 +58,23 @@ const StatsCarousel: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
+    width:250,
     backgroundColor: '#1E1E22',
     borderRadius: 20,
-    paddingVertical: 20,
+    paddingVertical: 5,
     paddingHorizontal: 40,
+    textAlign: 'center',
     alignSelf: 'center',
     overflow: 'hidden', // This is crucial to hide the sliding text
   },
   textContainer: {
+     textAlign: 'center',
     flexDirection: 'row',
     alignItems: 'center',
   },
   numberText: {
     color: '#FFFFFF',
-    fontSize: 32,
+    fontSize: 25,
     fontWeight: 'bold',
     marginRight: 10,
   },

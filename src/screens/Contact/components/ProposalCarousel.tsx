@@ -31,7 +31,7 @@ const ProposalCarousel: React.FC = () => {
     <View style={styles.container}>
       <Carousel
         loop
-        width={width * 0.7}
+        width={width * 0.6}
         height={width * 0.4}
         data={CAROUSEL_ITEMS}
         renderItem={renderItem}
