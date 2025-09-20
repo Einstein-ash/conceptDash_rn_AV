@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, Dimensions ,ImageBackground} from 'react-native
 import { allStories, Story } from '../../data/stories';
 import FilterMenu from './components/FilterMenu';
 import StoryCarousel from './components/StoryCarousel';
-import { HEADER_HEIGHT } from '../../components/Header';
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
 
 const categories = ['All', 'Articles', 'Insights', 'Mentions'];
 const { width: screenWidth } = Dimensions.get('window');
@@ -13,6 +13,7 @@ const { width: screenWidth } = Dimensions.get('window');
 const StoriesScreen: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredStories, setFilteredStories] = useState<Story[]>(allStories);
+      const { totalHeaderHeight } = useHeaderLayout();
 
   useEffect(() => {
     if (selectedCategory === 'All') {
@@ -31,7 +32,7 @@ const StoriesScreen: React.FC = () => {
             style={styles.backgroundImage}
           >
 
-    <View style={styles.container}>
+    <View style={[styles.container, {paddingTop: totalHeaderHeight + 5}]}>
       <View style={styles.breadcrumbContainer}>
         <Text style={styles.breadcrumbText}>Home </Text>
         <Text style={styles.breadcrumbText}>&gt; </Text>
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
-    paddingTop: HEADER_HEIGHT + 5,
     paddingHorizontal: 25,
   },
   breadcrumbContainer: {

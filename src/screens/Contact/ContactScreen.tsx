@@ -6,15 +6,17 @@ import ServiceSelector from './components/ServicesSelector';
 import ContactForm from './components/ContactForm';
 import Footer from '../../components/Footer';
 import { HEADER_HEIGHT } from '../../components/Header';
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
 
 const { width } = Dimensions.get('window');
 
 const ContactScreen: React.FC = () => {
   const [selectedService, setSelectedService] = useState('General');
+      const { totalHeaderHeight } = useHeaderLayout();
 
   return (
     <ScrollView
-      style={styles.container}
+      style={[styles.container, {marginTop: totalHeaderHeight + 15}]}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.scrollContent}
     >
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F7',
-    marginTop: HEADER_HEIGHT + 15 ,
+    // marginTop: HEADER_HEIGHT + 15 ,
   },
   scrollContent: {
     // paddingBottom: 20,

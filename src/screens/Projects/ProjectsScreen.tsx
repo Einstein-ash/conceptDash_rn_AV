@@ -1,17 +1,18 @@
-// src/screens/Projects/ProjectsScreen.tsx
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList , ImageBackground} from 'react-native';
 import { allProjects, Project } from '../../data/projects';
 import FilterMenu from './components/FilterMenu';
 import ProjectCard from './components/ProjectCard';
-import { HEADER_HEIGHT } from '../../components/Header';
+
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
 
 const categories = ['All', 'Construction', 'Architecture', 'Railways', 'Engineering'];
 
 const ProjectsScreen: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(allProjects);
+
+      const { totalHeaderHeight } = useHeaderLayout();
 
   useEffect(() => {
     if (selectedCategory === 'All') {
@@ -31,7 +32,7 @@ const ProjectsScreen: React.FC = () => {
       >
 
 
-  <View style={styles.container}>
+  <View style={[styles.container, { paddingTop: totalHeaderHeight + 10,}]}>
  
       ListHeaderComponent={
         <>
@@ -67,7 +68,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
     paddingHorizontal: 25,
-    paddingTop: HEADER_HEIGHT+10,
   },
   breadcrumbContainer: {
     flexDirection: 'row',
