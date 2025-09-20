@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
   breadcrumbContainer: {
     flexDirection: 'row',
     alignItems: 'center', // Align icon and text
-    marginBottom: 25,
+    paddingTop:15,
+    marginBottom: 10,
   },
   breadcrumbText: {
     // --- CHANGE: Darker text for light background ---

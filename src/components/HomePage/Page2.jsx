@@ -122,11 +122,11 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    // paddingTop: 60,
+    paddingTop: 40,
   },
   headerSection: {
     paddingHorizontal: 20,
-    marginBottom: 80,
+    marginBottom: 40,
   },
   brandText: {
     fontSize: 18,
