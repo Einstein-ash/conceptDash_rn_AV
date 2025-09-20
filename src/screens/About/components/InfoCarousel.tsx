@@ -51,7 +51,7 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
   ref={carouselRef}
   loop={false}
   width={width * 0.9} 
-  height={width * 1.1}
+  height={width * 1}
   data={CAROUSEL_DATA}
   scrollAnimationDuration={500}
   renderItem={renderItem}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    marginBottom: 15,
+    marginBottom: 5,
   },
   cardTitle: {
     color: '#FFFFFF',

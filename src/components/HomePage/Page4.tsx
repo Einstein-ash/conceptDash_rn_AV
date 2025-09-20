@@ -1,36 +1,31 @@
-
-
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, ScrollView, ImageBackground  } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, ScrollView, ImageBackground } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-  withSequence,
   runOnJS,
   Easing,
 } from 'react-native-reanimated';
 import Footer from '../Footer';
 
-
 const clientLogos = [
-   require('../../assets/images/page4/logo1.png'),
-   require('../../assets/images/page4/logo2.png'),
-   require('../../assets/images/page4/logo3.png'),
-   require('../../assets/images/page4/logo4.png'),
-   require('../../assets/images/page4/logo5.png'),
-   require('../../assets/images/page4/logo6.png'),
-+   require('../../assets/images/page4/logo7.jpg'),
-   require('../../assets/images/page4/logo8.png'),
-   require('../../assets/images/page4/logo9.jpg'),
-   require('../../assets/images/page4/logo10.png'),
-   require('../../assets/images/page4/logo11.png'),
-   require('../../assets/images/page4/logo12.png'),
-   require('../../assets/images/page4/logo13.jpg'),
-   require('../../assets/images/page4/logo14.jpg'),
-   require('../../assets/images/page4/logo15.png'),
-   // Add the rest of your logos here (16-20)
- ];
+  require('../../assets/images/page4/logo1.png'),
+  require('../../assets/images/page4/logo2.png'),
+  require('../../assets/images/page4/logo3.png'),
+  require('../../assets/images/page4/logo4.png'),
+  require('../../assets/images/page4/logo5.png'),
+  require('../../assets/images/page4/logo6.png'),
+  require('../../assets/images/page4/logo7.jpg'),
+  require('../../assets/images/page4/logo8.png'),
+  require('../../assets/images/page4/logo9.jpg'),
+  require('../../assets/images/page4/logo10.png'),
+  require('../../assets/images/page4/logo11.png'),
+  require('../../assets/images/page4/logo12.png'),
+  require('../../assets/images/page4/logo13.jpg'),
+  require('../../assets/images/page4/logo14.jpg'),
+  require('../../assets/images/page4/logo15.png'),
+];
 
 const changingTexts = [
   "100+ Creative Minds",
@@ -74,49 +69,44 @@ const Page4: React.FC<{ style?: any }> = ({ style }) => {
   });
 
   return (
-      <ImageBackground 
-    source={require('../../assets/images/page4/page4_bg.png')} // <-- PUT YOUR IMAGE PATH HERE
-    style={styles.backgroundImage}
-  >
-
-    <ScrollView style={[styles.container, style]}>
-      <View style={styles.dynamicButton}>
-        <Animated.Text style={[styles.dynamicButtonText, animatedStyle]}>
-          {changingTexts[currentIndex]}
-        </Animated.Text>
-      </View>
-
-      <Text style={styles.subDescriptionText}>{subDescriptionText}</Text>
-
-      <View style={styles.expertiseSection}>
-        <Text style={styles.expertiseTitle}>OUR CLIENTS</Text>
-
-        <View style={styles.gridContainer}>
-          {clientLogos.map((logo, index) => (
-            <View style={styles.logoBox} key={index}>
-              <Image source={logo} style={styles.logoImage} resizeMode="contain" />
-            </View>
-          ))}
+    <ImageBackground
+      source={require('../../assets/images/page4/page4_bg.png')}
+      style={[styles.container, style]}
+    >
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.dynamicButton}>
+          <Animated.Text style={[styles.dynamicButtonText, animatedStyle]}>
+            {changingTexts[currentIndex]}
+          </Animated.Text>
         </View>
-      </View>
-       <Footer />
-    </ScrollView>
-  </ImageBackground>
+
+        <Text style={styles.subDescriptionText}>{subDescriptionText}</Text>
+
+        <View style={styles.expertiseSection}>
+          <Text style={styles.expertiseTitle}>OUR CLIENTS</Text>
+
+          <View style={styles.gridContainer}>
+            {clientLogos.map((logo, index) => (
+              <View style={styles.logoBox} key={index}>
+                <Image source={logo} style={styles.logoImage} resizeMode="contain" />
+              </View>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+      <Footer />
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-    backgroundImage: {
-    flex: 1,
-    backgroundColor:'#fff'
-  },
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
-    // paddingHorizontal: 20,
-    paddingTop: 60,
-    marginTop: 10,
-
+    backgroundColor: '#fff'
+  },
+  scrollView: {
+    flex: 1,
+    paddingTop: 2,
   },
   dynamicButton: {
     alignSelf: 'center',
@@ -141,10 +131,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
     marginBottom: 30,
+    paddingHorizontal: 20,
   },
-  expertiseSection: {
-    flex: 1,
-  },
+  expertiseSection: {},
   expertiseTitle: {
     fontSize: 32,
     fontWeight: 'bold',
@@ -156,7 +145,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    paddingHorizontal:30,
+    paddingHorizontal: 30,
   },
   logoBox: {
     width: '30%',

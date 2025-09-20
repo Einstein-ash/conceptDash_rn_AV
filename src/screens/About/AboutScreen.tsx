@@ -8,7 +8,14 @@ import Page3 from './pages/AboutPage3';
 const pages = [<Page1 />, <Page2 />, <Page3 />];
 const { width } = Dimensions.get('window');
 
+import { HEADER_HEIGHT } from '../../components/Header';
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
+console.log("Header heidht from aout",HEADER_HEIGHT)
+
 const AboutScreen: React.FC = () => {
+
+    const { totalHeaderHeight } = useHeaderLayout();
+    
   const renderItem = ({ item }: { item: React.ReactNode }) => {
     return <View style={{ width: width }}>{item}</View>;
   };
@@ -20,12 +27,12 @@ const AboutScreen: React.FC = () => {
   >
 
     <ScrollView 
-      style={styles.container}
+      style={[styles.container, { marginTop: totalHeaderHeight }]}
       showsVerticalScrollIndicator={false}
       // You can add pagingEnabled here if you want it to snap
       pagingEnabled 
       >
-      <Page1 />
+      <Page1  />
       <Page2 />
       <Page3 />
     </ScrollView>
@@ -42,6 +49,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
+    // marginTop: HEADER_HEIGHT ,
+    // marginTop: 100,
   },
 });
 

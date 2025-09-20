@@ -7,9 +7,14 @@ import InfoCarousel from '../components/InfoCarousel';
 const { height: screenHeight } = Dimensions.get('window');
 const { width } = Dimensions.get('window');
 
+import { useHeaderLayout } from '../../../hooks/useHeaderLayout';
+
+
 const AboutPage1: React.FC = () => {
+
+    const { totalHeaderHeight } = useHeaderLayout();
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView style={[styles.container, { height: screenHeight - totalHeaderHeight}]} showsVerticalScrollIndicator={false}>
       <View style={styles.contentContainer}>
         <View style={styles.breadcrumbContainer}>
           <Text style={styles.breadcrumbText}>Home </Text>
@@ -38,13 +43,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent', // Light grey background
-    height: screenHeight,
   },
   contentContainer: {
-    padding: 25,
-    // --- CHANGE: Adjusted top padding to match design ---
-    paddingTop: 40, 
-  paddingBottom: 60,
+    paddingHorizontal: 25,
+    paddingBottom: 60,
   },
   breadcrumbContainer: {
     flexDirection: 'row',

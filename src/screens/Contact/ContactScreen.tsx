@@ -5,6 +5,7 @@ import ProposalCarousel from './components/ProposalCarousel';
 import ServiceSelector from './components/ServicesSelector';
 import ContactForm from './components/ContactForm';
 import Footer from '../../components/Footer';
+import { HEADER_HEIGHT } from '../../components/Header';
 
 const { width } = Dimensions.get('window');
 
@@ -57,21 +58,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F7',
-    marginTop: 100,
+    marginTop: HEADER_HEIGHT + 15 ,
   },
   scrollContent: {
     // paddingBottom: 20,
   },
   // --- ▼ NEW STYLES FOR THE INTEGRATED HEADER ▼ ---
   headerContainer: {
-    paddingTop: 40,
+    // paddingTop: 40,
     paddingHorizontal: 25,
     marginBottom: 20,
   },
   breadcrumbContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 25,
+    marginBottom: 15,
   },
   breadcrumbText: {
     color: '#8E8E93',

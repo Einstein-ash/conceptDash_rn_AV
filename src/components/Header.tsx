@@ -1,19 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity ,Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity ,Image  ,Platform, StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const cdLogo = require('../assets/images/cd_logo.png'); 
 import { navigate } from '../navigators/navigationUtils';
+import { green } from 'react-native-reanimated/lib/typescript/Colors';
+import { useHeaderLayout } from '../hooks/useHeaderLayout';
 
 interface HeaderProps {
   onMenuPress: () => void;
 }
 
-export const HEADER_HEIGHT = 60; 
+
+export const HEADER_HEIGHT = 60 ; 
 
 const Header: React.FC<HeaderProps> = ({ onMenuPress }) => {
-
+  
   const insets = useSafeAreaInsets();
+  const { totalHeaderHeight } = useHeaderLayout();
 
   return (
     <View 
@@ -21,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuPress }) => {
         styles.container, 
         { 
           paddingTop: insets.top,
-          height: HEADER_HEIGHT + insets.top 
+          height: totalHeaderHeight
         }
       ]}
     >
@@ -46,7 +50,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    backgroundColor: 'black', 
+    backgroundColor: '#9e2e2e46', 
+    // backgroundColor: 'black', 
+    // borderBottomColor: 'green',
     zIndex: 10,
   },
   logo: {

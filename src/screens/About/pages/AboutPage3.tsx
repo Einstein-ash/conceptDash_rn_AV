@@ -13,13 +13,16 @@ import {
 // NEW: Import the gradient component
 import LinearGradient from 'react-native-linear-gradient';
 import Footer from '../../../components/Footer';
+import { useHeaderLayout } from '../../../hooks/useHeaderLayout';
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
 
 const AboutPage3: React.FC = () => {
+
+      const { totalHeaderHeight } = useHeaderLayout();
   return (
 
-    <View style={styles.container}>
+    <View style={[styles.container, { height: screenHeight - totalHeaderHeight}]} >
             <View style={styles.mainContent}>
 
       <Text style={styles.title}>The future you imagine, is the one we create!</Text>
@@ -47,11 +50,8 @@ const AboutPage3: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: screenHeight,
         backgroundColor: 'transparent', // The light background color
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // paddingHorizontal: 20,
+
   },
     mainContent: {
     flex: 1, // This makes it take all available space, pushing the footer down

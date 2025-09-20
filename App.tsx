@@ -37,9 +37,6 @@ function App() {
       <StatusBar barStyle="light-content" backgroundColor="#111" />
 
     <View style={styles.container}>
-      <NavigationContainer ref={navigationRef}>
-        <RootNavigator onScroll={onScrollHandler} />
-      </NavigationContainer>
 
       <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
         <Animated.View
@@ -56,6 +53,9 @@ function App() {
           onClose={() => setIsSidebarVisible(false)}
         />
       </View>
+      <NavigationContainer ref={navigationRef}>
+        <RootNavigator onScroll={onScrollHandler} onMenuPress={() => setIsSidebarVisible(true)} />
+      </NavigationContainer>
     </View>
 
     {!isAppReady && (

@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, FlatList , ImageBackground} from 'react-native'
 import { allProjects, Project } from '../../data/projects';
 import FilterMenu from './components/FilterMenu';
 import ProjectCard from './components/ProjectCard';
+import { HEADER_HEIGHT } from '../../components/Header';
 
 const categories = ['All', 'Construction', 'Architecture', 'Railways', 'Engineering'];
 
@@ -66,11 +67,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
     paddingHorizontal: 25,
-    paddingTop: 80,
+    paddingTop: HEADER_HEIGHT+10,
   },
   breadcrumbContainer: {
     flexDirection: 'row',
-    paddingTop: 40,
+    // paddingTop: 40,
     marginBottom: 30,
   },
   breadcrumbText: {

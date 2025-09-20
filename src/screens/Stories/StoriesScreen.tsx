@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, Dimensions ,ImageBackground} from 'react-native
 import { allStories, Story } from '../../data/stories';
 import FilterMenu from './components/FilterMenu';
 import StoryCarousel from './components/StoryCarousel';
+import { HEADER_HEIGHT } from '../../components/Header';
 
 const categories = ['All', 'Articles', 'Insights', 'Mentions'];
 const { width: screenWidth } = Dimensions.get('window');
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
-    paddingTop: 80,
+    paddingTop: HEADER_HEIGHT + 5,
     paddingHorizontal: 25,
   },
   breadcrumbContainer: {

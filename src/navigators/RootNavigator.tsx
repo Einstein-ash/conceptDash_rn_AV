@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import type { RootStackParamList } from './types';
 
 
-// Import all your screens
+
 import HomePage from '../screens/HomePage';
 import AboutScreen from '../screens/About/AboutScreen';
 import ExpertiseScreen from '../screens/Expertise/ExpertiseScreen';
@@ -13,7 +13,6 @@ import ProjectsScreen from '../screens/Projects/ProjectsScreen';
 import StoriesScreen from '../screens/Stories/StoriesScreen';
 import CareersScreen from '../screens/Careers/CareersScreen';
 import ContactScreen from '../screens/Contact/ContactScreen';
-
 
 import {
   ConstructionProjectManagementScreen,
@@ -38,6 +37,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 type RootNavigatorProps = {
   onScroll: any; 
+   onMenuPress: () => void;
 };
 
 const RootNavigator: React.FC<RootNavigatorProps> = ({ onScroll }) => {
@@ -46,6 +46,7 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({ onScroll }) => {
       initialRouteName="Home"
 
       screenOptions={{ headerShown: false }} 
+
     >
       <Stack.Screen name="Home" component={HomePage} initialParams={{ onScroll: onScroll }} />
       <Stack.Screen name="About" component={AboutScreen} />

@@ -4,6 +4,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions, FlatList } from 'react-native';
 import StatsCarousel from '../components/StatsCarousel';
 import TeamMember from '../components/TeamMember';
+import { useHeaderLayout } from '../../../hooks/useHeaderLayout';
 
 const { height: screenHeight } = Dimensions.get('window');
 
@@ -48,8 +49,10 @@ const TEAM_DATA = [
 ];
 
 const AboutPage2: React.FC = () => {
+      const { totalHeaderHeight } = useHeaderLayout();
+      
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { height: screenHeight - totalHeaderHeight}]} >
       <FlatList
         ListHeaderComponent={
           <>
@@ -84,9 +87,8 @@ const AboutPage2: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: screenHeight,
     backgroundColor: 'transparent',
-    paddingTop: 75,
+    paddingTop: 10,
   },
   textSection: {
     paddingHorizontal: 25,

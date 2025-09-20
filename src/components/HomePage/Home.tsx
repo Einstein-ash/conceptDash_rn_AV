@@ -82,7 +82,6 @@ const Home: React.FC<{ style?: any }> = ({ style }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: height,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -4,10 +4,15 @@ import { Dimensions, ScrollView, StyleSheet, View, NativeSyntheticEvent, NativeS
 import type { StackScreenProps } from '@react-navigation/stack';
 import type { RootStackParamList } from '../navigators/types';
 
+import { HEADER_HEIGHT } from '../components/Header';
+console.log("Header heidht",HEADER_HEIGHT)
+
 import Home from '../components/HomePage/Home';
 import Page2 from '../components/HomePage/Page2';
 import Page3 from '../components/HomePage/Page3';
 import Page4 from '../components/HomePage/Page4';
+import { useHeaderLayout } from '../hooks/useHeaderLayout';
+
 
 
 type Props = StackScreenProps<RootStackParamList, 'Home'>;
@@ -16,6 +21,10 @@ const { height: screenHeight } = Dimensions.get('window');
 const PAGES = [<Home />, <Page2 style={undefined} />, <Page3 style={undefined} />, <Page4 />];
 
 function HomePage({ route }: Readonly<Props>) {
+
+  const { totalHeaderHeight } = useHeaderLayout();
+
+    
   const [activePageIndex, setActivePageIndex] = useState(0);
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -26,7 +35,7 @@ function HomePage({ route }: Readonly<Props>) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container ,{ marginTop: totalHeaderHeight}]}>
       <ScrollView
         style={styles.scrollContainer}
         pagingEnabled={true}
@@ -36,7 +45,7 @@ function HomePage({ route }: Readonly<Props>) {
       >
         {PAGES.map((Page, index) => (
           <View key={index}>
-            {React.cloneElement(Page, { style: styles.fullScreen })}
+            {React.cloneElement(Page, { style:[ styles.fullScreen , {   height: screenHeight - totalHeaderHeight,}] })}
           </View>
         ))}
       </ScrollView>
@@ -57,12 +66,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
+    // marginTop: HEADER_HEIGHT,
   },
   scrollContainer: {
     flex: 1,
   },
   fullScreen: {
-    height: screenHeight,
+    // height: screenHeight - HEADER_HEIGHT,
     width: '100%',
   },
   dotsContainer: {

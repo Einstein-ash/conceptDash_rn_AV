@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingTop: 60,
+    // paddingTop: 60,
   },
   headerSection: {
     paddingHorizontal: 20,
