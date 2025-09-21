@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     // marginTop: HEADER_HEIGHT ,
     // marginTop: 100,
   },
+  
 });
 
 export default AboutScreen;

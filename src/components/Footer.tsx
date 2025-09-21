@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
       </View>
 
 
-        {/* Column 5: Scroll to Top */}
+
         <TouchableOpacity style={styles.scrollTopButton}>
           <Icon name="arrow-up" size={24} color="#FFF" />
         </TouchableOpacity>
@@ -57,7 +57,8 @@ const Footer: React.FC = () => {
 
 const styles = StyleSheet.create({
   footerContainer: {
-    backgroundColor: '#000000',
+    backgroundColor: '#000000ff',
+    // backgroundColor: '#d467672c',
     paddingVertical: 5,
   },
   footerContent: {

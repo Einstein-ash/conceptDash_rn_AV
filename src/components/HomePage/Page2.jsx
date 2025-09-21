@@ -18,6 +18,7 @@ import dept_1 from '../../assets/images/page2/dept_1.png';
 import dept_4 from '../../assets/images/page2/dept_4.png';
 import dept_5 from '../../assets/images/page2/dept_5.jpg';
 import dept_6 from '../../assets/images/page2/dept_6.png';
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.75; 
@@ -42,25 +43,24 @@ const Page2 = ({ style }) => {
     }
   });
 
+  const { pageScreenHeight} = useHeaderLayout();
+
   return (
-    <View style={[styles.container, style]}>
+    <View style={[styles.container, style, {height : pageScreenHeight}]}>
       {/* 2. Pagination Dots on the left */}
 
-      <View style={styles.content}>
-        <View style={styles.headerSection}>
-          <Text style={styles.brandText}>
-            <Text style={styles.brandHighlight}>Concept Dash</Text> stands for quality, reliability and agility in every solution, shaping ideas into bespoke, future-ready infrastructure.
-          </Text>
-          <Text style={styles.subText}>
-            From conceptual design to post-construction operations, We <Text style={styles.careText}>CARE!</Text>
-          </Text>
+      <View style={[styles.content , {height :  pageScreenHeight}]}>
+        <View style={[styles.headerSection, {height : '20%'}]}>
+            <Text style={[styles.brandText,  { fontSize : pageScreenHeight * 0.025}]}>
+              <Text style={styles.brandHighlight}>Concept Dash</Text> stands for quality, reliability and agility in every solution, shaping ideas into bespoke, future-ready infrastructure.
+            </Text>
+            <Text style={[styles.subText, { fontSize : pageScreenHeight * 0.023}]}>
+              From conceptual design to post-construction operations, We <Text style={[styles.careText,  { fontSize : pageScreenHeight * 0.024}]}>CARE!</Text>
+            </Text>
         </View>
 
-        <View style={styles.expertiseSection}>
-          <Text style={styles.expertiseTitle}>Expertise</Text>
-          <Text style={styles.backgroundCounter}>
-            {String(activeIndex + 1).padStart(2, '0')}
-          </Text>
+        <View style={[styles.expertiseSection, {height : '70%'}]}>
+          <Text style={[styles.expertiseTitle, {fontSize : pageScreenHeight * 0.06}]}>Expertise</Text>
 
           <FlatList
             horizontal
@@ -75,7 +75,7 @@ const Page2 = ({ style }) => {
             renderItem={({ item }) => (
               // highlight-start
               // 3. The completely redesigned card
-              <View style={styles.card}>
+              <View style={[styles.card , {height : '80%'}]}>
                 <Image
                   source={item.image}
                   style={styles.cardImage}
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    flexDirection: 'row', // To align pagination and content
+    flexDirection: 'row', 
   },
   pagination: {
     paddingTop: 150,
@@ -140,8 +140,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   subText: {
+    fontSize: 17.5,
     marginTop: 15,
-    fontSize: 18.5,
     color: '#333',
     lineHeight: 24,
     fontWeight: '400',
@@ -152,13 +152,12 @@ const styles = StyleSheet.create({
   careText: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize : 20
+    fontSize : 19.5
   },
   expertiseSection: {
     flex: 1,
   },
   expertiseTitle: {
-    fontSize: 36,
     fontWeight: '800',
     color: '#8660d0', 
     textAlign: 'center',
@@ -175,13 +174,13 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   cardsContent: {
-    paddingTop: 40,
+    // paddingTop: 40,
     paddingHorizontal: (width * 0.25) / 2, // Center the cards correctly
     alignItems: 'center',
   },
   card: {
     width: CARD_WIDTH,
-    height: 380,
+    // height: 380,
     marginRight: SPACING,
     borderRadius: 20,
     overflow: 'hidden',

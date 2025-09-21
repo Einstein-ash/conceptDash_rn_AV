@@ -1,6 +1,6 @@
 
 import React, { useRef } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, StyleProp, ViewStyle } from 'react-native';
 import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -27,7 +27,12 @@ const CAROUSEL_DATA = [
   },
 ];
 
-const InfoCarousel = () => {
+type InfoCarouselProps = {
+  style?: StyleProp<ViewStyle>;
+};
+
+const InfoCarousel = ({ style }: InfoCarouselProps) => {
+
   const carouselRef = useRef<ICarouselInstance>(null);
 const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
   // --- CHANGE: Complete rework of the card structure ---
@@ -46,12 +51,11 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
 );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
 <Carousel
   ref={carouselRef}
   loop={false}
   width={width * 0.9} 
-  height={width * 1}
   data={CAROUSEL_DATA}
   scrollAnimationDuration={500}
   renderItem={renderItem}
@@ -78,12 +82,14 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
 const styles = StyleSheet.create({
   // --- CHANGE: All styles updated for the new design ---
   container: {
-    // alignItems: 'flex-start', // Align carousel to the left
-    paddingLeft:10,
+    alignItems: 'flex-end', // Align carousel to the left
+    // paddingLeft: 27,
+    width : '100%',
+    // alignItems: 'center',
   },
   cardContainer: {
     width: width * 0.8, // Card is 80% of screen width
-    height: '90%',      // Fills the carousel height
+    height: '100%',      // Fills the carousel height
     backgroundColor: '#1E1E22',
     borderRadius: 30,
     overflow: 'hidden',
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   cardImage: {
-    width: '100%',
+    width: '85%',
     height: '60%', // Adjusted height
     borderRadius: 20,
     marginBottom: 20, // More space

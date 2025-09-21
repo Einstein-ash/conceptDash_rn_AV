@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, ScrollView, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, ScrollView, ImageBackground, LayoutChangeEvent } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -8,6 +8,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import Footer from '../Footer';
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
 
 const clientLogos = [
   require('../../assets/images/page4/logo1.png'),
@@ -40,7 +41,10 @@ const BUTTON_WIDTH = screenWidth * 0.8;
 
 const Page4: React.FC<{ style?: any }> = ({ style }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [footerHeight, setFooterHeight] = useState(0);
+  
   const translateX = useSharedValue(0);
+    const { pageScreenHeight} = useHeaderLayout();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,33 +72,46 @@ const Page4: React.FC<{ style?: any }> = ({ style }) => {
     };
   });
 
+    const onFooterLayout = (event: LayoutChangeEvent) => {
+    const { height } = event.nativeEvent.layout;
+    if (height > 0 && height !== footerHeight) {
+      setFooterHeight(height);
+    }
+  };
+
   return (
     <ImageBackground
       source={require('../../assets/images/page4/page4_bg.png')}
-      style={[styles.container, style]}
+      style={[styles.container, style, {height : pageScreenHeight  }]}
     >
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.dynamicButton}>
-          <Animated.Text style={[styles.dynamicButtonText, animatedStyle]}>
-            {changingTexts[currentIndex]}
-          </Animated.Text>
+      <ScrollView style={[styles.scrollView ,{height : pageScreenHeight - footerHeight } ]}>
+        <View style = {[  {height :  (pageScreenHeight - footerHeight) * 0.25 }]}>
+          <View style={[styles.dynamicButton]}>
+            <Animated.Text style={[styles.dynamicButtonText, animatedStyle,  ]}>
+              <Text style = {{fontSize : pageScreenHeight * 0.026}}>
+                {changingTexts[currentIndex]}
+              </Text>
+            </Animated.Text>
+          </View>
+
+          <Text style={[styles.subDescriptionText, {fontSize : pageScreenHeight * 0.029}]}>Testaments to the impact of thoughtful design!</Text>
         </View>
 
-        <Text style={styles.subDescriptionText}>{subDescriptionText}</Text>
+        <View style={[styles.expertiseSection, {height :  (pageScreenHeight - footerHeight) * 0.75 }] }>
+          <Text style={[styles.expertiseTitle , {fontSize : pageScreenHeight * 0.045}]}>OUR CLIENTS</Text>
 
-        <View style={styles.expertiseSection}>
-          <Text style={styles.expertiseTitle}>OUR CLIENTS</Text>
-
-          <View style={styles.gridContainer}>
+          <View style={[styles.gridContainer, {height : '84%'}]}>
             {clientLogos.map((logo, index) => (
-              <View style={styles.logoBox} key={index}>
+              <View style={[styles.logoBox, {height : '15%'}]} key={index}>
                 <Image source={logo} style={styles.logoImage} resizeMode="contain" />
               </View>
             ))}
           </View>
         </View>
       </ScrollView>
-      <Footer />
+      <View  onLayout={onFooterLayout}>
+        <Footer />
+      </View>
     </ImageBackground>
   );
 };
@@ -107,6 +124,14 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     paddingTop: 2,
+  
+  },
+
+  test_border : {
+    borderColor : 'blue',     // for test --------------
+    borderWidth: 1,  // for test --------------
+    // marginVertical : 10,    // for test --------------
+    marginHorizontal : 10,    // for test --------------
   },
   dynamicButton: {
     alignSelf: 'center',
@@ -137,8 +162,8 @@ const styles = StyleSheet.create({
   expertiseTitle: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#6366f1',
-    marginBottom: 20,
+    color: '#6f71ddff',
+    paddingBottom: 15,
     textAlign: 'center',
   },
   gridContainer: {
@@ -149,7 +174,6 @@ const styles = StyleSheet.create({
   },
   logoBox: {
     width: '30%',
-    height: 80,
     backgroundColor: '#fff',
     marginBottom: 15,
     borderRadius: 10,
@@ -162,8 +186,8 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   logoImage: {
-    width: '70%',
-    height: '70%',
+    width: '75%',
+    height: '75%',
   },
 });
 

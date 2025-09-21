@@ -9,6 +9,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import { navigate } from '../../navigators/navigationUtils';
+import { useHeaderLayout } from '../../hooks/useHeaderLayout';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.7;
@@ -58,19 +59,21 @@ const Page3: React.FC<{ style?: any }> = ({ style }) => {
     }
   });
 
+    const {totalHeaderHeight, pageScreenHeight} = useHeaderLayout();
+
   return (
     <ImageBackground
       source={require('../../assets/images/page3/page3_bg.png')}
-      style={[styles.container, style]}
+      style={[styles.container, style, {height : pageScreenHeight}]}
     >
-      <View style={styles.overlay}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.mainTitle}>Smart Sustainable Design Solutions</Text>
-          <Text style={styles.subtitle}>Your Vision, Our Purpose</Text>
-          <Text style={styles.sectionTitle}>Featured Projects</Text>
+      <View style={[styles.overlay, {paddingTop : '10%'}]}>
+        <View style={[styles.headerContainer , {height : '20%'}]}>
+          <Text style={[styles.mainTitle, {fontSize : pageScreenHeight * 0.039}]}>Smart Sustainable Design Solutions</Text>
+          <Text style={[styles.subtitle, {fontSize : pageScreenHeight * 0.033}]}>Your Vision, Our Purpose</Text>
+          <Text style={[styles.sectionTitle, {fontSize : pageScreenHeight * 0.031 }]}>Featured Projects</Text>
         </View>
 
-        <View style={styles.carouselContainer}>
+        <View style={[styles.carouselContainer, {height : '70%'}]}>
           <FlatList
             horizontal
             data={projectsData}
@@ -84,7 +87,7 @@ const Page3: React.FC<{ style?: any }> = ({ style }) => {
             renderItem={({ item }) => (
               <ImageBackground
                 source={item.image}
-                style={styles.card}
+                style={[styles.card, {height : '80%'}]}
                 imageStyle={{ borderRadius: 0 }}
               >
                 <View style={styles.cardOverlay}>
@@ -112,12 +115,11 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 30, 40, 0.7)',
-    paddingTop: 100,
   },
   headerContainer: {
     alignItems: 'center',
     paddingHorizontal: 20,
-    marginBottom: 20,
+    paddingBottom: 10,
   },
   mainTitle: {
     color: 'white',
@@ -149,7 +151,6 @@ const styles = StyleSheet.create({
   },
   card: {
     width: CARD_WIDTH,
-    height: 460,
     marginRight: SPACING,
     borderRadius: 0,
     justifyContent: 'flex-end',
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: '600',
-    marginBottom: 15,
+    paddingBottom: 15,
     textAlign: 'center',
   },
   exploreButton: {
