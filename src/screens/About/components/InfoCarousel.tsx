@@ -82,26 +82,24 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
 const styles = StyleSheet.create({
   // --- CHANGE: All styles updated for the new design ---
   container: {
-    alignItems: 'flex-end', // Align carousel to the left
-    // paddingLeft: 27,
+    alignItems: 'flex-end', 
     width : '100%',
     // alignItems: 'center',
   },
   cardContainer: {
-    width: width * 0.8, // Card is 80% of screen width
-    height: '100%',      // Fills the carousel height
+    width: width * 0.8, 
+    height: '100%',    
     backgroundColor: '#1E1E22',
     borderRadius: 30,
     overflow: 'hidden',
     alignItems: 'center',
     paddingVertical: 20,
     paddingHorizontal: 15,
-    // iOS Shadow
+
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.3,
     shadowRadius: 20,
-    // Android Shadow
     elevation: 15,
   },
   cardHeader: {

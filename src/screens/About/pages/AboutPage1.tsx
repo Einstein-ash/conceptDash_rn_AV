@@ -16,7 +16,7 @@ const AboutPage1: React.FC = () => {
   return (
     <ScrollView style={[styles.container, { height: pageScreenHeight }]} showsVerticalScrollIndicator={false}>
 
-      <View style={[styles.contentContainer ,styles.test_border1 , {height : '95%'}]}>
+      <View style={[styles.contentContainer  , {height : '95%'}]}>
       {/* <View style={[styles.contentContainer ,styles.test_border1 ]}> */}
             <View style={styles.breadcrumbContainer}>
               <Text style={[styles.breadcrumbText, {fontSize : pageScreenHeight * 0.02}]}>Home </Text>
@@ -35,9 +35,9 @@ const AboutPage1: React.FC = () => {
             </Text>
         </View>
 
-        <View style = { [styles.test_border2, { height : '90%'}]}>
+        <View style = { [ { height : '90%'}]}>
 
-            <InfoCarousel style = { [ styles.test_border3, {height : '100%'}]}/>
+            <InfoCarousel style = { [{height : '100%'}]}/>
         </View>
 
     </ScrollView>
@@ -45,24 +45,25 @@ const AboutPage1: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-    test_border1 : {
-    borderColor : 'blue',     // for test --------------
-    borderWidth: 3,  // for test --------------
-    // marginVertical : 10,    // for test --------------
-    marginHorizontal : 2,    // for test --------------
-  },
-    test_border2 : {
-    borderColor : 'green',     // for test --------------
-    borderWidth: 3,  // for test --------------
-    // marginVertical : 10,    // for test --------------
-    marginHorizontal : 2,    // for test --------------
-  },
-    test_border3 : {
-    borderColor : 'red',     // for test --------------
-    borderWidth: 3,  // for test --------------
-    // marginVertical : 10,    // for test --------------
-    marginHorizontal : 2,    // for test --------------
-  },
+
+  //   test_border1 : {
+  //   borderColor : 'blue',     // for test --------------
+  //   borderWidth: 3,  // for test --------------
+  //   // marginVertical : 10,    // for test --------------
+  //   marginHorizontal : 2,    // for test --------------
+  // },
+  //   test_border2 : {
+  //   borderColor : 'green',     // for test --------------
+  //   borderWidth: 3,  // for test --------------
+  //   // marginVertical : 10,    // for test --------------
+  //   marginHorizontal : 2,    // for test --------------
+  // },
+  //   test_border3 : {
+  //   borderColor : 'red',     // for test --------------
+  //   borderWidth: 3,  // for test --------------
+  //   // marginVertical : 10,    // for test --------------
+  //   marginHorizontal : 2,    // for test --------------
+  // },
 
   container: {
     flex: 1,
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingHorizontal: 25,
-    // paddingBottom: 60,
+    paddingBottom: 10,
   },
   breadcrumbContainer: {
     flexDirection: 'row',
