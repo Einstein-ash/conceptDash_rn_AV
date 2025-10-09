@@ -47,7 +47,6 @@ const Page2 = ({ style }) => {
 
   return (
     <View style={[styles.container, style, {height : pageScreenHeight}]}>
-      {/* 2. Pagination Dots on the left */}
 
       <View style={[styles.content , {height :  pageScreenHeight}]}>
         <View style={[styles.headerSection, {height : '20%'}]}>
@@ -92,7 +91,7 @@ const Page2 = ({ style }) => {
       
                 </TouchableOpacity> 
               </View>
-              // highlight-end
+
             )}
           />
         </View>
@@ -101,7 +100,6 @@ const Page2 = ({ style }) => {
   );
 };
 
-// 4. All styles are updated to match the target design
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -136,7 +134,7 @@ const styles = StyleSheet.create({
     textAlign : 'center'
   },
   brandHighlight: {
-    color: '#8660d0', // A more muted color
+    color: '#8660d0',
     fontWeight: 'bold',
   },
   subText: {
@@ -174,8 +172,7 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   cardsContent: {
-    // paddingTop: 40,
-    paddingHorizontal: (width * 0.25) / 2, // Center the cards correctly
+    paddingHorizontal: (width * 0.25) / 2, 
     alignItems: 'center',
   },
   card: {
@@ -200,7 +197,7 @@ const styles = StyleSheet.create({
     bottom: 20,
     left: 20,
     right: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.85)', // Semi-transparent white
+    backgroundColor: 'rgba(255, 255, 255, 0.85)', 
     borderRadius: 15,
     padding: 15,
     flexDirection: 'row',
@@ -211,7 +208,7 @@ const styles = StyleSheet.create({
     color: '#333',
     fontSize: 18,
     fontWeight: 'bold',
-    flex: 1, // Allows text to wrap if it's long
+    flex: 1,
   },
   iconCircle: {
     width: 40,

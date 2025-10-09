@@ -1,5 +1,3 @@
-// src/screens/About/pages/AboutPage3.tsx
-
 import React from 'react';
 import {
   View,
@@ -7,10 +5,7 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  // For an exact match, you'd use ImageBackground
-  // import { ImageBackground } from 'react-native';
 } from 'react-native';
-// NEW: Import the gradient component
 import LinearGradient from 'react-native-linear-gradient';
 import Footer from '../../../components/Footer';
 import { useHeaderLayout } from '../../../hooks/useHeaderLayout';
@@ -50,48 +45,46 @@ const AboutPage3: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-        backgroundColor: 'transparent', // The light background color
+        backgroundColor: 'transparent', 
 
   },
     mainContent: {
-    flex: 1, // This makes it take all available space, pushing the footer down
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   title: {
-    color: '#6A1B9A', // Vibrant purple
+    color: '#6A1B9A', 
     fontSize: 26,
     fontWeight: '600',
     textAlign: 'center',
   },
   subtitle: {
-    color: '#1C1C1E', // Dark charcoal color
+    color: '#1C1C1E',
     fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 8,
-    marginBottom: 40, // Space between text and buttons
+    marginBottom: 40, 
   },
   buttonContainer: {
-    marginBottom: 15, // Space between the two buttons
+    marginBottom: 15, 
   },
   button: {
-    width: screenWidth * 0.8, // Button width is 80% of screen
+    width: screenWidth * 0.8, 
     paddingVertical: 18,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    // iOS Shadow
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 10,
-    // Android Shadow
     elevation: 8,
   },
   secondaryButton: {
-    backgroundColor: '#3498DB', // Solid light blue
+    backgroundColor: '#3498DB', 
   },
   buttonText: {
     color: '#FFFFFF',

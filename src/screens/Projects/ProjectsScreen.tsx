@@ -27,7 +27,7 @@ const ProjectsScreen: React.FC = () => {
 
   return (
          <ImageBackground 
-        source={require('../../assets/images/page4/page4_bg.png')} // <-- PUT YOUR IMAGE PATH HERE
+        source={require('../../assets/images/page4/page4_bg.png')} 
         style={styles.backgroundImage}
       >
 

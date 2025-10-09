@@ -1,5 +1,3 @@
-// src/screens/About/pages/Page1.tsx
-
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import InfoCarousel from '../components/InfoCarousel';
@@ -17,7 +15,6 @@ const AboutPage1: React.FC = () => {
     <ScrollView style={[styles.container, { height: pageScreenHeight }]} showsVerticalScrollIndicator={false}>
 
       <View style={[styles.contentContainer  , {height : '95%'}]}>
-      {/* <View style={[styles.contentContainer ,styles.test_border1 ]}> */}
             <View style={styles.breadcrumbContainer}>
               <Text style={[styles.breadcrumbText, {fontSize : pageScreenHeight * 0.02}]}>Home </Text>
               <Text style={[styles.breadcrumbText, {fontSize : pageScreenHeight * 0.02}]}>&gt; </Text>
@@ -75,21 +72,18 @@ const styles = StyleSheet.create({
   },
   breadcrumbContainer: {
     flexDirection: 'row',
-    alignItems: 'center', // Align icon and text
+    alignItems: 'center',
     paddingVertical:15,
   },
   breadcrumbText: {
-    // --- CHANGE: Darker text for light background ---
     color: '#8E8E93',
     fontSize: 16,
   },
   breadcrumbActive: {
-    // --- CHANGE: Darker text and bold for active item ---
     color: '#1C1C1E',
     fontWeight: '600',
   },
   title: {
-    // --- CHANGE: Purple color and adjusted styles ---
     color: '#6A1B9A',
     fontSize: 16,
     fontWeight: 'bold',
@@ -97,7 +91,6 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
   },
   description: {
-    // --- CHANGE: Darker text for readability ---
     color: '#333333',
     // fontSize: 13,
     lineHeight: 22,

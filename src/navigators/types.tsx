@@ -1,4 +1,3 @@
-
 export type RootStackParamList = {
     Home: { onScroll?: (...args: any[]) => void };
   About: undefined;
@@ -24,5 +23,4 @@ export type RootStackParamList = {
   Engineering_Land: undefined;
   Engineering_Structural: undefined;
   Engineering_Acoustics: undefined;
-  // --- ▲ CHANGE ENDS HERE ▲ ---
 };

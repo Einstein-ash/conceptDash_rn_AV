@@ -1,5 +1,3 @@
-// src/data/stories.ts
-
 export interface Story {
   id: number;
   location: string;
@@ -11,7 +9,6 @@ export interface Story {
   image: any;
 }
 
-// ACTION: Add your stories here and update the image paths
 export const allStories: Story[] = [
   {
     id: 1,
@@ -53,5 +50,4 @@ export const allStories: Story[] = [
     category: 'Mentions',
     image: require('../assets/images/stories/story4.png'),
   },
-  // ... Add more stories for each category
 ];

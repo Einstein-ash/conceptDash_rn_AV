@@ -12,7 +12,7 @@ import Animated, {
    Extrapolate,
    interpolate,
    useAnimatedStyle,
-   SharedValue, // Import SharedValue directly
+   SharedValue, 
  } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Feather';
 import LinearGradient from 'react-native-linear-gradient';

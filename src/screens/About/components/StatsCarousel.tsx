@@ -1,5 +1,3 @@
-// src/screens/About/components/StatsCarousel.tsx
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Animated, {
@@ -23,18 +21,16 @@ const StatsCarousel: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Animate out
       translateX.value = withTiming(-100, { duration: 400, easing: Easing.ease });
       opacity.value = withTiming(0, { duration: 400 });
 
-      // After a delay, change the text and animate in
       setTimeout(() => {
         runOnJS(setCurrentIndex)((prevIndex) => (prevIndex + 1) % STATS_DATA.length);
-        translateX.value = 100; // Move to the right, off-screen
+        translateX.value = 100; 
         translateX.value = withTiming(0, { duration: 400, easing: Easing.ease });
         opacity.value = withTiming(1, { duration: 400 });
       }, 500);
-    }, 3000); // Change stat every 3 seconds
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -65,7 +61,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     textAlign: 'center',
     alignSelf: 'center',
-    overflow: 'hidden', // This is crucial to hide the sliding text
+    overflow: 'hidden', 
   },
   textContainer: {
      textAlign: 'center',

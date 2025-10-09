@@ -29,7 +29,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuPress }) => {
         }
       ]}
     >
-      {/* <Text style={styles.logo}>CD</Text> */}
        <TouchableOpacity onPress={() => navigate('Home')}>
         <Image source={cdLogo} style={{ width: 60, height: 35 ,  resizeMode: 'contain' }} />
        </TouchableOpacity>

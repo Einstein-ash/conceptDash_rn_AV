@@ -1,5 +1,3 @@
-// src/screens/Projects/components/FilterMenu.tsx
-
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
@@ -32,7 +30,6 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ categories, selectedCategory, o
 };
 
 const styles = StyleSheet.create({
-  // --- CHANGE: All styles updated for a horizontal layout ---
   container: {
     flexDirection: 'column',
     // justifyContent: 'flex-start',
@@ -45,13 +42,13 @@ const styles = StyleSheet.create({
   },
   activeText: {
     fontSize: 16,
-    color: '#6A1B9A', // Purple color
+    color: '#6A1B9A', 
     fontWeight: '600',
     marginBottom: 6,
   },
   inactiveText: {
     fontSize: 16,
-    color: '#8E8E93', // Grey color
+    color: '#8E8E93',
     fontWeight: '600',
     marginBottom: 6,
   },

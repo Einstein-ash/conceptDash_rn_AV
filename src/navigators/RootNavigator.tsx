@@ -1,5 +1,3 @@
-// src/navigators/RootNavigator.tsx
-
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import type { RootStackParamList } from './types';

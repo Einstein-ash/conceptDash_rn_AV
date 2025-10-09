@@ -35,18 +35,16 @@ const styles = StyleSheet.create({
   },
     breadcrumbContainer: {
     flexDirection: 'row',
-    alignItems: 'center', // Align icon and text
+    alignItems: 'center',
     marginBottom: 100,
     borderColor:'red',
 
   },
   breadcrumbText: {
-    // --- CHANGE: Darker text for light background ---
     color: '#8E8E93',
     fontSize: 16,
   },
   breadcrumbActive: {
-    // --- CHANGE: Darker text and bold for active item ---
     color: '#1C1C1E',
     fontWeight: '600',
   },

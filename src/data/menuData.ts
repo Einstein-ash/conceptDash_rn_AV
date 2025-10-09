@@ -1,9 +1,7 @@
-// src/components/menuData.ts
-
 export interface MenuItemData {
   title: string;
-  screen?: string; // Optional: only for links
-  submenu?: MenuItemData[]; // Optional: only for accordions
+  screen?: string;
+  submenu?: MenuItemData[]; 
 }
 
 export const MENU_DATA: MenuItemData[] = [

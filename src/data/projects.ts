@@ -1,15 +1,12 @@
-// src/data/projects.ts
-
 export interface Project {
   id: number;
   title: string;
   category: 'Construction' | 'Architecture' | 'Railways' | 'Engineering';
   location: string;
   year: number;
-  image: any; // Type for require()
+  image: any; 
 }
 
-// ACTION: Add all your projects here and update the image paths
 export const allProjects: Project[] = [
   {
     id: 1,
@@ -67,5 +64,4 @@ export const allProjects: Project[] = [
     year: 2025,
     image: require('../assets/images/projects/engg_project2.jpg'),
   },
-  // ... Add all your other projects here
 ];

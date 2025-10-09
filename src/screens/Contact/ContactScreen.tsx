@@ -20,7 +20,7 @@ const ContactScreen: React.FC = () => {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.scrollContent}
     >
-      {/* --- ▼ NEW: Header content is now inside the ScrollView ▼ --- */}
+
       <View style={styles.headerContainer}>
         <View style={styles.breadcrumbContainer}>
           <Text style={styles.breadcrumbText}>Home </Text>
@@ -39,7 +39,6 @@ const ContactScreen: React.FC = () => {
           </View>
         </View>
       </View>
-      {/* --- ▲ HEADER CONTENT ENDS HERE ▲ --- */}
       
       <ProposalCarousel />
       
@@ -60,12 +59,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F7',
-    // marginTop: HEADER_HEIGHT + 15 ,
   },
   scrollContent: {
     // paddingBottom: 20,
   },
-  // --- ▼ NEW STYLES FOR THE INTEGRATED HEADER ▼ ---
   headerContainer: {
     // paddingTop: 40,
     paddingHorizontal: 25,
@@ -103,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D1D1D1',
     marginHorizontal: 15,
   },
-  // --- ▲ END OF NEW HEADER STYLES ▲ ---
+
   formSection: {
     paddingHorizontal: 25,
     marginBottom: 60,

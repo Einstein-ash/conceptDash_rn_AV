@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FlatList, Dimensions, View, ScrollView, StyleSheet, ImageBackground} from 'react-native';
 import Page1 from './pages/AboutPage1';
@@ -22,14 +21,13 @@ const AboutScreen: React.FC = () => {
 
   return (
   <ImageBackground 
-    source={require('../../assets/images/page4/page4_bg.png')} // <-- PUT YOUR IMAGE PATH HERE
+    source={require('../../assets/images/page4/page4_bg.png')}
     style={styles.backgroundImage}
   >
 
     <ScrollView 
       style={[styles.container, { marginTop: totalHeaderHeight }]}
       showsVerticalScrollIndicator={false}
-      // You can add pagingEnabled here if you want it to snap
       pagingEnabled 
       >
       <Page1  />

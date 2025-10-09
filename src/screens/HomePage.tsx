@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, View, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import type { StackScreenProps } from '@react-navigation/stack';

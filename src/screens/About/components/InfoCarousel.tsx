@@ -80,7 +80,7 @@ const renderItem = ({ item }: { item: typeof CAROUSEL_DATA[0] }) => (
 
 
 const styles = StyleSheet.create({
-  // --- CHANGE: All styles updated for the new design ---
+
   container: {
     alignItems: 'flex-end', 
     width : '100%',
@@ -112,14 +112,14 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     color: '#FFFFFF',
-    fontSize: 18, // Slightly smaller title
+    fontSize: 18,
     fontWeight: '600',
   },
   cardImage: {
     width: '85%',
-    height: '60%', // Adjusted height
+    height: '60%', 
     borderRadius: 20,
-    marginBottom: 20, // More space
+    marginBottom: 20, 
   },
   descriptionContainer: {
     flex: 1,
@@ -127,14 +127,14 @@ const styles = StyleSheet.create({
   },
   cardDescription: {
     color: '#AEAEB2',
-    fontSize: 13.5, // Smaller description text
+    fontSize: 13.5, 
     textAlign: 'center',
     lineHeight: 19,
   },
   arrowButton: {
     position: 'absolute',
-    top: '50%', // Vertically centered
-    transform: [{ translateY: -22 }], // Adjust for button size
+    top: '50%',
+    transform: [{ translateY: -22 }], 
     backgroundColor: 'rgba(30, 30, 30, 0.7)',
     height: 44,
     width: 44,
@@ -145,10 +145,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   leftArrow: {
-    left: 10, // Positioned near the left edge
+    left: 10, 
   },
   rightArrow: {
-    right: width * 0.1 - 22, // Positioned over the 'peek' area
+    right: width * 0.1 - 22, 
   },
 });
 

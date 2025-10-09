@@ -1,13 +1,11 @@
-// src/screens/About/components/TeamMember.tsx
-
 import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable, Animated } from 'react-native';
 
 type TeamMemberProps = {
   name: string;
   role: string;
-  imageColor: any; // Image source for color version
-  imageBw: any;    // Image source for black & white version
+  imageColor: any;
+  imageBw: any;  
 };
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, imageColor, imageBw }) => {
@@ -36,9 +34,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, imageColor, imageBw
       onPressOut={handlePressOut}
     >
       <View style={styles.imageContainer}>
-        {/* Black and white image is the base */}
+ 
         <Image source={imageBw} style={styles.image} />
-        {/* Color image fades in on top */}
         <Animated.Image
           source={imageColor}
           style={[styles.image, styles.colorImage, { opacity: colorOpacity }]}

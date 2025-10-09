@@ -1,5 +1,3 @@
-// src/screens/About/pages/AboutPage2.tsx
-
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, FlatList } from 'react-native';
 import StatsCarousel from '../components/StatsCarousel';
@@ -8,7 +6,6 @@ import { useHeaderLayout } from '../../../hooks/useHeaderLayout';
 
 const { height: screenHeight } = Dimensions.get('window');
 
-// --- ACTION: Replace with your actual team members and image paths ---
 const TEAM_DATA = [
   {
     name: 'Mike Neumann',
